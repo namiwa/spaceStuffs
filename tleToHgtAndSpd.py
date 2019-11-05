@@ -13,8 +13,13 @@ def fileWrite(df, filename):
   df.to_excel(filename)
   f.close()
 
-filename = "Data\Three_TLE_22Oct19.xlsx"
-df = pd.read_excel(filename, sheet_name=0, index_col=None, header=None)
+rawfilename = 'data.text'
+raw = []
+with open("data.text") as f:
+  for line in f:
+    raw.append(line)
+
+df = pd.DataFrame(raw)
 
 store = []
 deb = []
